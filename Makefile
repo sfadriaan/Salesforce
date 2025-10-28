@@ -1,8 +1,9 @@
 VENVDIR = venv
 VENV = $(VENVDIR)/bin/activate
 VALE_CONFIG = .vale.ini
+TARGET = README.md
 
-.PHONY: build install serve spelling vale-install 
+.PHONY: install spelling vale-install run-behave 
 
 
 # If requirements are updated, venv should be rebuilt and timestamped.
@@ -19,13 +20,23 @@ $(VENVDIR):
 
 install: $(VENVDIR)
 
+lint-md: pymarkdownlnt-install
+	@. $(VENV); pymarkdownlnt --config .pymarkdown.json scan fixtures --recurse
+
+pymarkdownlnt-install:
+	@. $(VENV); test -d $(VENVDIR)/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
+
+run-behave: vale-install
+	@. $(VENV); behave
+
+spelling: vale-install
+	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
+	@. $(VENV); vale --config="$(VALE_CONFIG)" --glob='*.{md,rst}' $(TARGET)
+
 vale-install: install
 	@. $(VENV);
 	@. $(VENV); find $(VENVDIR)/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --version \;
 
 vale-verbose: vale-install
 	@. $(VENV); vale --output=line --sort --normalize --relative --no-global .
-
-run-behave: vale-install
-	@. $(VENV); behave
 
