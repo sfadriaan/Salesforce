@@ -55,15 +55,15 @@ def step_impl(context: Context):
     
     # Final Assertion 1: Check for missing lines
     assert not missing_expected_lines, (
-        f"The linter output is missing the following expected issues:\n"
-        f"{'\n'.join(missing_expected_lines)}\n"
-        f"\nActual Output:\n{actual_output}"
+        f"The linter output is missing the following expected issues:{chr(10)}"  # Use chr(10) instead of \n
+        f"{chr(10).join(missing_expected_lines)}{chr(10)}"  # Use chr(10).join() instead of '\n'.join()
+        f"{chr(10)}Actual Output:{chr(10)}{actual_output}"
     )
     
     # Final Assertion 2: Check for extra lines (strict checking)
     assert found_expected_count == len(actual_lines), (
-        f"The linter output reported {len(actual_lines)} issues, but only {found_expected_count} were expected.\n"
-        f"Extra output found:\n{actual_output}"
+        f"The linter output reported {len(actual_lines)} issues, but only {found_expected_count} were expected.{chr(10)}"
+        f"Extra output found:{chr(10)}{actual_output}"
     )
 
 @when('I cd to "{directory}"')
