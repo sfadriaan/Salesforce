@@ -1,0 +1,7 @@
+extends: existence
+message: "Spell 'multitenant' as one word instead of '%s'."
+level: suggestion
+ignorecase: true
+link: https://developer.salesforce.com/docs/atlas.en-us.salesforce_pubs_style_guide.meta/salesforce_pubs_style_guide/style_multitenant.htm
+tokens:
+  - 'multi[\s-]tenant'

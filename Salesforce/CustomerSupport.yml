@@ -1,0 +1,8 @@
+extends: existence
+message: Capitalize 'Customer Support' and use it with the company name, for example 'Salesforce Customer Support'.
+level: error
+ignorecase: false
+tokens:
+  - '\b[cC]ustomer\s+[sS]upport\b'
+exceptions:
+  - Customer Support

@@ -1,0 +1,9 @@
+extends: existence
+message: "Don't use '%s' for a UI state. Use 'unavailable' or 'disabled' instead."
+level: suggestion
+ignorecase: true
+link: https://developer.salesforce.com/docs/atlas.en-us.salesforce_pubs_style_guide.meta/salesforce_pubs_style_guide/style_unavailable.htm
+tokens:
+  - '\bgr[ae]yed out\b'
+  - '\bdimmed\b'
+  - '\buneditable\b'

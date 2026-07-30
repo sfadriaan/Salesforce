@@ -1,0 +1,7 @@
+extends: existence
+message: "Write 'click **Save**', not 'click the **Save** button'. Similarly, do not write '%s'."
+level: error
+link: https://developer.salesforce.com/docs/atlas.en-us.salesforce_pubs_style_guide.meta/salesforce_pubs_style_guide/style_buttons.htm
+ignorecase: true
+tokens:
+  - '\bclick\sthe\s(\w+)\sbutton\b'

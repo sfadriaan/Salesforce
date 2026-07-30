@@ -1,0 +1,8 @@
+extends: substitution
+message: "'%s' is one word. Don't split it into two words."
+level: suggestion
+ignorecase: true
+link: https://developer.salesforce.com/docs/atlas.en-us.salesforce_pubs_style_guide.meta/salesforce_pubs_style_guide/style_datasheet.htm
+swap:
+  'data sheets': 'datasheets'
+  'data sheet': 'datasheet'

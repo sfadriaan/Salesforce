@@ -1,0 +1,1 @@
+Select the check box to enable sending email notifications.

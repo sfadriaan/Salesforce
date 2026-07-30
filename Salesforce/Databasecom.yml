@@ -1,0 +1,9 @@
+extends: existence
+message: "Use 'Database.com' instead of '%s'."
+level: suggestion
+ignorecase: false
+link: https://developer.salesforce.com/docs/atlas.en-us.salesforce_pubs_style_guide.meta/salesforce_pubs_style_guide/glossary_master.htm
+tokens:
+  - '\bdatabase\.com\b'
+  - '\bDatabase\.Com\b'
+  - '\bDataBase\.com\b'

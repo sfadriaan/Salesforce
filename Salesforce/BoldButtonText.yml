@@ -1,0 +1,13 @@
+extends: existence
+scope: raw
+message: "Use bold text when referring to buttons, such as Click **Save**."
+level: error
+ignorecase: true
+tokens:
+  - Click Save
+  - Click Delete
+  - Click Next
+  - Click Clone
+  - Click OK
+  - Click Cancel
+  - Click Run Report
