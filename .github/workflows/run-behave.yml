@@ -1,21 +1,26 @@
-name: Run Behave
+name: Tests
 
-on: [pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
   behave:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
       - name: Run Behave
-        run: |
-          make run-behave
+        run: make run-behave
+
+      - name: Lint fixtures Markdown
+        run: make lint-md
